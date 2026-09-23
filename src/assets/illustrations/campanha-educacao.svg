@@ -1,0 +1,18 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8E44AD"/>
+      <stop offset="100%" stop-color="#5B2C6F"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#g3)"/>
+  <!-- book -->
+  <path d="M130 110 L200 125 L200 210 L130 195 Z" fill="#ffffff"/>
+  <path d="M270 110 L200 125 L200 210 L270 195 Z" fill="#F1F1F1"/>
+  <line x1="145" y1="140" x2="185" y2="150" stroke="#8E44AD" stroke-width="4"/>
+  <line x1="145" y1="160" x2="185" y2="170" stroke="#8E44AD" stroke-width="4"/>
+  <line x1="215" y1="150" x2="255" y2="140" stroke="#BDBDBD" stroke-width="4"/>
+  <line x1="215" y1="170" x2="255" y2="160" stroke="#BDBDBD" stroke-width="4"/>
+  <!-- pencil -->
+  <rect x="195" y="70" width="10" height="50" rx="2" fill="#F1C40F" transform="rotate(15 200 95)"/>
+</svg>

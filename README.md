@@ -43,8 +43,11 @@ O **Mãos Solidárias** é um site de página única (inspirado em plataformas c
 - Estilização de texto (tipografia, hierarquia de títulos, cores e estados de hover);
 - Estilização de imagens (fotos reais com `object-fit`, `border-radius` e imagem de fundo com overlay no hero);
 - Layout construído inteiramente com **Flexbox** (cabeçalho, cards de campanha, formulário, rodapé);
-- Componentes reutilizáveis: `Header`, `Footer` e `CampaignCard` (repetido para cada campanha via `props`);
-- Estado com `useState` no formulário de voluntariado (campos controlados + mensagem de sucesso ao enviar);
+- Componentes reutilizáveis, sem repetição de marcação: `Header`, `Footer`, `Logo` (usada nos dois),
+  `Section`/`SectionHeader` (o "molde" de toda seção da página) e `CampaignCard` (repetido para cada campanha via `props`);
+- Dados centralizados em `src/data/` (informações da ONG, links do menu e campanhas), lidos por vários componentes
+  em vez de repetidos como texto solto pelo código;
+- Estado com `useState` no formulário de voluntariado (campos controlados, gerados a partir de uma lista, + mensagem de sucesso ao enviar);
 - Menu de navegação responsivo (menu "hambúrguer" em telas menores) com rolagem até a seção via âncoras.
 
 ## Tecnologias utilizadas
@@ -58,12 +61,23 @@ O **Mãos Solidárias** é um site de página única (inspirado em plataformas c
 
 ```
 src/
-├── components/       # Componentes reutilizáveis (Header, Footer, CampaignCard)
-├── data/             # Dados mockados das campanhas (título, imagem, meta, arrecadado...)
-├── App.jsx           # Página única com todas as seções (hero, sobre, campanhas, como ajudar, contato)
-├── main.jsx          # Ponto de entrada da aplicação
-└── index.css         # Estilos globais, variáveis de tema e layout (Flexbox)
+├── assets/               # Logo da ONG
+├── components/
+│   ├── Header.jsx        # Cabeçalho fixo com menu (usa Logo + navLinks)
+│   ├── Footer.jsx        # Rodapé (usa Logo + navLinks + dados da ONG)
+│   ├── Logo.jsx          # Marca "Mãos Solidárias" — mesmo componente no header e no rodapé
+│   ├── Section.jsx       # Molde de seção (id, fundo alternado, container)
+│   ├── SectionHeader.jsx # Molde do bloco "tag + título + texto de apoio"
+│   └── CampaignCard.jsx  # Card de campanha (recebe os dados via props)
+├── data/
+│   ├── ong.js            # Nome, endereço, telefone, e-mail, chave PIX e links do menu
+│   └── campanhas.js      # Lista de campanhas (título, imagem, meta, arrecadado...)
+├── App.jsx               # Página única: monta as seções com Section + SectionHeader
+├── main.jsx              # Ponto de entrada da aplicação
+└── index.css             # Estilos globais, variáveis de tema e layout (Flexbox)
 ```
+
+O padrão repetido em toda seção da página (`<section><div class="container">` + tag + título) vira só `<Section>` e `<SectionHeader>`; e informações que apareciam em mais de um lugar (endereço, telefone, chave PIX, links do menu) moraram para `data/ong.js`, lidas de um único ponto por quem precisa delas.
 
 ## Como executar localmente
 

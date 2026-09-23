@@ -1,34 +1,25 @@
 import { useState } from "react";
-import logo from "../assets/logo.png";
-
-const links = [
-  { href: "#inicio", label: "Início" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#campanhas", label: "Campanhas" },
-  { href: "#ajudar", label: "Como Ajudar" },
-  { href: "#contato", label: "Contato" },
-];
+import Logo from "./Logo";
+import { navLinks } from "../data/ong";
 
 function Header() {
   const [menuAberto, setMenuAberto] = useState(false);
+  const fecharMenu = () => setMenuAberto(false);
 
   return (
     <header className="header">
       <div className="container header-inner">
-        <a href="#inicio" className="logo" onClick={() => setMenuAberto(false)}>
-          <img src={logo} alt="Instituto Mãos Solidárias" className="logo-img" />
-          <span className="logo-text">
-            <span className="logo-maos">Mãos</span> <span className="logo-solidarias">Solidárias</span>
-          </span>
+        <a href="#inicio" onClick={fecharMenu}>
+          <Logo />
         </a>
 
         <nav className={menuAberto ? "nav nav-aberto" : "nav"}>
-          {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuAberto(false)}>
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} onClick={fecharMenu}>
               {link.label}
             </a>
           ))}
-          <a href="#ajudar" className="btn btn-primary" onClick={() => setMenuAberto(false)}>
+          <a href="#ajudar" className="btn btn-primary" onClick={fecharMenu}>
             Doar agora
           </a>
         </nav>

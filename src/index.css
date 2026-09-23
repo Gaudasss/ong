@@ -7,6 +7,7 @@
   --text: #2f2a26;
   --text-light: #6b6560;
   --border: #eee3d6;
+  --font-heading: "Poppins", system-ui, sans-serif;
 }
 
 * {
@@ -21,7 +22,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font-heading);
   margin: 0 0 12px;
 }
 
@@ -136,7 +137,7 @@ img {
 }
 
 .logo-text {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
@@ -147,12 +148,12 @@ img {
   color: #163a2e;
 }
 
-.logo-maos-footer {
-  color: #ffffff;
-}
-
 .logo-solidarias {
   color: #4c9a2a;
+}
+
+.logo-claro .logo-maos {
+  color: #ffffff;
 }
 
 .nav {
@@ -200,6 +201,20 @@ img {
   .nav.nav-aberto {
     display: flex;
   }
+
+  .sobre-linha,
+  .ajudar-linha {
+    flex-direction: column;
+  }
+
+  .ajudar-img {
+    position: static;
+    max-width: 240px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
 }
 
 /* Hero */
@@ -243,7 +258,7 @@ img {
 
 .stat strong {
   display: block;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
   font-size: 32px;
   color: var(--accent);
 }
@@ -430,8 +445,7 @@ img {
   font-size: 15px;
 }
 
-.logo-footer {
-  color: #fff;
+.logo-claro {
   margin-bottom: 12px;
 }
 
@@ -442,20 +456,4 @@ img {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 18px 0;
   margin: 0;
-}
-
-@media (max-width: 820px) {
-  .sobre-linha,
-  .ajudar-linha {
-    flex-direction: column;
-  }
-
-  .ajudar-img {
-    position: static;
-    max-width: 240px;
-  }
-
-  .hero h1 {
-    font-size: 30px;
-  }
 }

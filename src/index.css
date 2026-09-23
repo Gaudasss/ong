@@ -127,23 +127,32 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-text {
   font-family: "Poppins", sans-serif;
-}
-
-.logo-mark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--primary);
-  color: #fff;
+  font-size: 18px;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
-.logo strong {
-  color: var(--accent);
+.logo-maos {
+  color: #163a2e;
+}
+
+.logo-maos-footer {
+  color: #ffffff;
+}
+
+.logo-solidarias {
+  color: #4c9a2a;
 }
 
 .nav {

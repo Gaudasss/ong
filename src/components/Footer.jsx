@@ -1,3 +1,5 @@
+import logo from "../assets/logo.png";
+
 function Footer() {
   const ano = new Date().getFullYear();
 
@@ -6,9 +8,9 @@ function Footer() {
       <div className="container footer-inner">
         <div>
           <div className="logo logo-footer">
-            <span className="logo-mark">M</span>
-            <span>
-              Mãos <strong>Solidárias</strong>
+            <img src={logo} alt="Instituto Mãos Solidárias" className="logo-img" />
+            <span className="logo-text">
+              <span className="logo-maos-footer">Mãos</span> <span className="logo-solidarias">Solidárias</span>
             </span>
           </div>
           <p>Arrecadação de doações e mobilização de voluntários em Maceió/AL.</p>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "../assets/logo.png";
 
 const links = [
   { href: "#inicio", label: "Início" },
@@ -15,9 +16,9 @@ function Header() {
     <header className="header">
       <div className="container header-inner">
         <a href="#inicio" className="logo" onClick={() => setMenuAberto(false)}>
-          <span className="logo-mark">M</span>
-          <span>
-            Mãos <strong>Solidárias</strong>
+          <img src={logo} alt="Instituto Mãos Solidárias" className="logo-img" />
+          <span className="logo-text">
+            <span className="logo-maos">Mãos</span> <span className="logo-solidarias">Solidárias</span>
           </span>
         </a>
 

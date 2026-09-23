@@ -26,44 +26,43 @@ Pequenas ONGs e associações comunitárias costumam organizar suas campanhas de
 
 ## A solução
 
-O **Mãos Solidárias** centraliza essas informações em um site único, dividido em páginas temáticas, para que doadores, voluntários e parceiros encontrem rapidamente o que precisam:
+O **Mãos Solidárias** é um site de página única (inspirado em plataformas como o [Vakinha](https://vakinha.org.br/)), dividido em seções acessíveis por um menu fixo no topo, para que doadores, voluntários e parceiros encontrem rapidamente o que precisam:
 
-| Página | O que resolve |
+| Seção | O que resolve |
 | --- | --- |
-| **Início** | Visão geral da ONG, estatísticas de impacto e campanhas em destaque. |
-| **Sobre** | História, missão e valores da instituição — dá confiança a quem vai doar. |
-| **Campanhas** | Lista de campanhas ativas com progresso de arrecadação, filtráveis por categoria. |
-| **Como Ajudar** | Chave PIX para doação financeira, pontos de coleta de itens e formulário de cadastro de voluntários. |
-| **Contato** | Canal direto para dúvidas, parcerias e visitas. |
+| **Início (hero)** | Chamada principal com foto de impacto e botões de ação. |
+| **Números** | Estatísticas de impacto da ONG (famílias atendidas, voluntários, campanhas, anos de atuação). |
+| **Sobre** | História e missão da instituição — dá confiança a quem vai doar. |
+| **Campanhas** | Cards com as campanhas ativas, imagem, categoria e progresso de arrecadação. |
+| **Como Ajudar** | Chave PIX para doação financeira, endereço para doação de itens e formulário de cadastro de voluntários. |
+| **Contato** | Endereço, telefone e e-mail da ONG. |
 
 ## Funcionalidades
 
-- Layout responsivo dividido em componentes reutilizáveis (cabeçalho, rodapé, cards de campanha, cards de estatística);
-- Estilização de texto (tipografia, hierarquia de títulos, cores e estados de hover/foco);
-- Estilização de imagens (ilustrações em SVG com `object-fit`, `border-radius`, sombras e efeito de zoom no hover);
-- Layouts construídos inteiramente com **Flexbox** (cabeçalho, cards, formulários, rodapé) e **CSS Grid** na grade de campanhas;
-- Navegação entre páginas com **React Router**;
-- Componentes com **estado** (`useState`) no filtro de campanhas por categoria e nos formulários controlados de voluntariado e contato, incluindo mensagem de sucesso ao enviar;
-- Menu de navegação responsivo (menu "hambúrguer" em telas menores).
+- Página dividida em seções via HTML semântico, cada uma com sua responsabilidade;
+- Estilização de texto (tipografia, hierarquia de títulos, cores e estados de hover);
+- Estilização de imagens (fotos reais com `object-fit`, `border-radius` e imagem de fundo com overlay no hero);
+- Layout construído inteiramente com **Flexbox** (cabeçalho, cards de campanha, formulário, rodapé);
+- Componentes reutilizáveis: `Header`, `Footer` e `CampaignCard` (repetido para cada campanha via `props`);
+- Estado com `useState` no formulário de voluntariado (campos controlados + mensagem de sucesso ao enviar);
+- Menu de navegação responsivo (menu "hambúrguer" em telas menores) com rolagem até a seção via âncoras.
 
 ## Tecnologias utilizadas
 
 - [React 19](https://react.dev/)
 - [Vite](https://vite.dev/) (build tool e dev server)
-- [React Router](https://reactrouter.com/) (roteamento entre páginas)
-- CSS puro (variáveis CSS, Flexbox e Grid, sem frameworks de estilização)
+- CSS puro (variáveis CSS e Flexbox, sem frameworks de estilização)
+- Fotos livres de [Pexels](https://www.pexels.com/)
 
 ## Estrutura do projeto
 
 ```
 src/
-├── assets/illustrations/   # Ilustrações SVG usadas no site
-├── components/             # Componentes reutilizáveis (Header, Footer, CampaignCard, StatCard, HelpCard)
-├── data/                   # Dados mockados das campanhas
-├── pages/                  # Páginas da aplicação (Home, Sobre, Campanhas, ComoAjudar, Contato)
-├── App.jsx                 # Definição das rotas
-├── main.jsx                # Ponto de entrada da aplicação
-└── index.css                # Estilos globais e variáveis de tema
+├── components/       # Componentes reutilizáveis (Header, Footer, CampaignCard)
+├── data/             # Dados mockados das campanhas (título, imagem, meta, arrecadado...)
+├── App.jsx           # Página única com todas as seções (hero, sobre, campanhas, como ajudar, contato)
+├── main.jsx          # Ponto de entrada da aplicação
+└── index.css         # Estilos globais, variáveis de tema e layout (Flexbox)
 ```
 
 ## Como executar localmente

@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-import "./CampaignCard.css";
-
 function formatarMoeda(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
 }
@@ -10,28 +7,22 @@ function CampaignCard({ campanha }) {
 
   return (
     <article className="campaign-card">
-      <div className="campaign-card-imagem">
-        <img src={campanha.imagem} alt={campanha.titulo} />
-        <span className="campaign-card-categoria">{campanha.categoria}</span>
-      </div>
+      <img src={campanha.imagem} alt={campanha.titulo} className="campaign-card-img" />
 
       <div className="campaign-card-corpo">
+        <span className="tag">{campanha.categoria}</span>
         <h3>{campanha.titulo}</h3>
         <p>{campanha.descricao}</p>
 
-        <div className="campaign-card-progresso">
-          <div className="barra">
-            <div className="barra-preenchida" style={{ width: `${progresso}%` }} />
-          </div>
-          <div className="campaign-card-valores">
-            <strong>{formatarMoeda(campanha.arrecadado)}</strong>
-            <span>de {formatarMoeda(campanha.meta)}</span>
-          </div>
+        <div className="barra">
+          <div className="barra-preenchida" style={{ width: `${progresso}%` }} />
+        </div>
+        <div className="campaign-card-valores">
+          <strong>{formatarMoeda(campanha.arrecadado)}</strong>
+          <span>de {formatarMoeda(campanha.meta)}</span>
         </div>
 
-        <Link to="/como-ajudar" className="btn btn-ghost campaign-card-btn">
-          Quero ajudar
-        </Link>
+        <a href="#ajudar" className="btn btn-ghost">Quero ajudar</a>
       </div>
     </article>
   );
